@@ -17,7 +17,7 @@ public class Bot {
 	public Map<Stager, Stage> stages = new HashMap<Stager, Stage>();
 
 	public Bot() {
-		name = botNames[(int) Math.random() * botNames.length];
+		name = botNames[(int) (Math.random() * botNames.length)];
 		//SampleStage SampleStage = new SampleStage();
 		IntroStage IntroStage = new IntroStage();
 		// create stage objects
@@ -106,8 +106,8 @@ public class Bot {
 //		case repeat:
 //			completed = true;
 //			break;
-//		case review:
-//			completed = true;
+		case review:
+			completed = true;
 //			break;
 //		case outro:
 //			completed = true;
@@ -117,15 +117,15 @@ public class Bot {
 	}
 
 	enum Stager {
-		SampleStage, // sample
+		//SampleStage, // sample
 		intro, // Introduction
-		need, // Need Medical Attention?
+		//need, // Need Medical Attention?
 		immediate, // Is it immediate?
 		free, // Are you free?
 		diagnose, // Get personal info, get diagnosis info and give diagnosis
-		repeat, // Would you like to repeat?
+		//repeat, // Would you like to repeat?
 		review, // Ask for review
-		outro // Ending remarks
+		//outro // Ending remarks
 	}
 
 	// Resources
