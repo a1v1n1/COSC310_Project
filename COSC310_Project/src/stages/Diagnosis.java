@@ -171,22 +171,3 @@ public class Diagnosis implements Stage {
 	
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -15,7 +15,7 @@ public class Review implements Stage{
 		while(!bCheck) {
 			if(in.hasNextInt()) {
 				int rating = in.nextInt();
-				if(rating < 5 || rating > 1) {//Number not within 1 and 5
+				if(rating > 5 || rating < 1) {//Number not within 1 and 5
 					System.out.println(cannedReview3[(int)(Math.random()*cannedReview3.length)]);
 				}
 				else {
@@ -23,10 +23,12 @@ public class Review implements Stage{
 					bCheck = true;	
 				}
 			}
-			else
+			else {
+				String flush = in.nextLine();
 				System.out.println("Please only enter integers");//Rating not an integer
+			}
 		}
-		System.out.println("Thank you for your review! I hope you have ");
+		System.out.println("Thank you for your review! I hope you have a gre-");
 		
 		return true;//continue to DiagnoseStage
 	}
@@ -42,3 +44,4 @@ public class Review implements Stage{
 	String[] cannedReview3 = {"Uh, please only put numbers between 1 and 5.", "Those numbers aren't between 1 and 5"};
 	
 }
+

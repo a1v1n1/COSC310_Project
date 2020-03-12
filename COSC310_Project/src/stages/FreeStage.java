@@ -32,7 +32,7 @@ public class FreeStage implements Stage{
 				bot.userSex = "M";//User is male
 				bCheck = true;
 			}
-			if(s.equalsIgnoreCase("female") || s.equalsIgnoreCase("girl") || s.equalsIgnoreCase("F")) {
+			else if(s.equalsIgnoreCase("female") || s.equalsIgnoreCase("girl") || s.equalsIgnoreCase("F")) {
 				bot.userSex = "F";//user is female
 				bCheck = true;
 			}
@@ -70,3 +70,4 @@ public class FreeStage implements Stage{
 			"Sorry, I didn't quite catch that. Was that male or female?"};
 	
 }
+
