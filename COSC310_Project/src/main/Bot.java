@@ -43,7 +43,6 @@ public class Bot {
 		}
 
 		
-		
 		// TESTING CODE START
 
 //		for (int i = 0; i < 3; i++) { // try to run stage 3 times
