@@ -7,7 +7,6 @@ public class ImmediateStage implements Stage{
 	
 	public boolean start(Bot b) {
 		Bot bot = b;
-		System.out.println("");
 		Scanner in = new Scanner(System.in);
 		System.out.println(cannedCheck1[(int)(Math.random()*cannedCheck1.length)]);//Ask about immediate medical help
 		boolean EMCheck = false;
@@ -15,7 +14,7 @@ public class ImmediateStage implements Stage{
 			if(in.next().equalsIgnoreCase("no")) { //User does not need 911. Continue to Free stage.
 				return true;
 			}
-			if(in.next().equalsIgnoreCase("yes")) {
+			if(in.next().equalsIgnoreCase("yes")) {//User needs 911. Ask for address
 				EMCheck = true;
 			}
 			else
