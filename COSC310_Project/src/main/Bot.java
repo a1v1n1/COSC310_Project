@@ -20,29 +20,28 @@ public class Bot {
 	}
 
 	public boolean start() {
-		boolean success = false;
+		boolean success = true;
 		Stager failedStage = null;
-		
 		
 		for (Stager stage : Stager.values()) { //run through all stages
 			//boolean failed = false;
+			boolean stageFailed = true;
 			for(int i = 0; i < 3; i++) { //try to run stage 3 times
 				if(stager(stage)) {
-					success = true;
+					stageFailed = false;
 					break; //success
 				}
 					
 			}
 			//failed
-			failedStage = stage; //reducible currently
-			if(!success) {
+			if(stageFailed) {
+				success = false;
+				failedStage = stage; //reducible currently
 				stages.get(failedStage).printFailMessage();
 				break;
 			}
 			
 		}
-
-		
 		
 		// TESTING CODE START
 
@@ -73,23 +72,31 @@ public class Bot {
 
 		switch (stage) {
 		case SampleStage:
-			completed = stages.get(Stager.SampleStage).start();
+			completed = stages.get(Stager.SampleStage).start(this);
 			break;
 		case intro:
+			completed = true;
 			break;
 		case need:
+			completed = true;
 			break;
 		case immediate:
+			completed = true;
 			break;
 		case free:
+			completed = true;
 			break;
 		case diagnose:
+			completed = true;
 			break;
 		case repeat:
+			completed = true;
 			break;
 		case review:
+			completed = true;
 			break;
 		case outro:
+			completed = true;
 			break;
 		}
 		return completed;

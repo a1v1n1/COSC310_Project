@@ -28,10 +28,8 @@ public class Main {
 					System.out.println("assuming yes");
 				}
 				
-				
-				
-				
 			}
+			
 		}
 		
 	}
