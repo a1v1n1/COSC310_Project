@@ -18,5 +18,4 @@ public class SampleStage implements Stage{
 		System.out.println("Sample stage failed. Returning to main for another \"agent\"");
 	}
 	
-	
 }
