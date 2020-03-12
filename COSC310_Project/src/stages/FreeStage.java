@@ -11,11 +11,12 @@ public class FreeStage implements Stage{
 		System.out.println(cannedGreets1[(int)(Math.random()*cannedGreets1.length)]);//Ask if user is free to answer questions
 		boolean bCheck = false;
 		while(!bCheck) {
-			if(in.next().equalsIgnoreCase("no")) {
+			String answer = in.next();
+			if(answer.equalsIgnoreCase("no")) {
 				System.out.println("I see. Well, have a good day.");//User does not need help. END
 				return false;
 			}
-			if(in.next().equalsIgnoreCase("yes")) {
+			if(answer.equalsIgnoreCase("yes")) {
 				bCheck = true;
 			}
 			else
@@ -40,7 +41,7 @@ public class FreeStage implements Stage{
 		}
 		System.out.println(cannedGreets4[(int)(Math.random()*cannedGreets4.length)]);//Ask for user age
 		bCheck = false;
-		while(!bCheck) {//Ask for user sex
+		while(!bCheck) {
 			if(in.hasNextInt()) {
 				bot.userAge = in.nextInt();//Save user age
 				bCheck = true;

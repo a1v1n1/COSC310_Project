@@ -11,10 +11,11 @@ public class ImmediateStage implements Stage{
 		System.out.println(cannedCheck1[(int)(Math.random()*cannedCheck1.length)]);//Ask about immediate medical help
 		boolean EMCheck = false;
 		while(!EMCheck) {
-			if(in.next().equalsIgnoreCase("no")) { //User does not need 911. Continue to Free stage.
+			String answer = in.next();
+			if(answer.equalsIgnoreCase("no")) { //User does not need 911. Continue to Free stage.
 				return true;
 			}
-			if(in.next().equalsIgnoreCase("yes")) {//User needs 911. Ask for address
+			if(answer.equalsIgnoreCase("yes")) {//User needs 911. Ask for address
 				EMCheck = true;
 			}
 			else
@@ -27,11 +28,12 @@ public class ImmediateStage implements Stage{
 			System.out.println("Is this the correct address: /n" +bot.userAddress);
 			boolean ACheck = false;
 			while(!ACheck) {
-				if(in.next().equalsIgnoreCase("yes")) { //Address confirmed. Send message to 911
+				String answer = in.next();
+				if(answer.equalsIgnoreCase("yes")) { //Address confirmed. Send message to 911
 					ACheck = true;
 					EMCheck = true;
 				}
-				if(in.next().equalsIgnoreCase("no")) {
+				if(answer.equalsIgnoreCase("no")) {
 					System.out.println("Okay, what is the correct address?");
 					ACheck = true;
 				}
