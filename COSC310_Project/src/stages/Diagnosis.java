@@ -63,12 +63,13 @@ public class Diagnosis implements Stage {
 		}
 		Scanner in = new Scanner(System.in);
 		String input = "";
+		in.useDelimiter("\\n");
 		
 		String title = "";
 		if(bot.userSex.equalsIgnoreCase("M"))
-			title = "Mister";
+			title = "Mister ";
 		if(bot.userSex.equalsIgnoreCase("F"))
-			title = "Miss";
+			title = "Miss ";
 		
 		System.out.println("Alright " + title + bot.username + ", does your condition involve pain at all?");
 		input = in.next();
@@ -97,19 +98,23 @@ public class Diagnosis implements Stage {
 		while(hasProblem) {
 			input = in.next();
 			for(String bodyPart : bodyParts) {
-				if(input.toLowerCase().contains(" " + bodyPart)) {
+				if(input.toLowerCase().contains(bodyPart)) {
 					badBodyParts.replace(bodyPart, true);
 				}
 			}
 			
 			System.out.println("Is there anything else related to your health you are concerned about?");
+			input = in.next();
 			if(!(input.toLowerCase().contains("yes") || input.toLowerCase().contains("yea"))) {
 				hasProblem = false;
 				System.out.println("Alright, Here's my recommendation:");
 			}
+			else {
+				System.out.println("Ok, what else is bothering you today?");
+			}
 		}
 		
-		firstLineOut = true;
+		firstLineOut = false;
 		
 		if(bot.userAge < 19)
 			printer(firstLineOut, "You should go see a Pediatrician. \nA pediatrician deals with humans from birth to young adulthood");
@@ -159,6 +164,7 @@ public class Diagnosis implements Stage {
 	public void printer(Boolean firstLineOut, String toPrint) {
 		if(firstLineOut) {
 			System.out.print("Also, ");
+			firstLineOut = false;
 		}
 		System.out.println(toPrint);
 	}
