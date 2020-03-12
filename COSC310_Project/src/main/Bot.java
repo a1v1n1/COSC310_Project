@@ -10,6 +10,8 @@ public class Bot {
 	public String name;
 	public String username;
 	public String userAddress;
+	public String userSex;
+	public String userAge;
 	public Map<Stager, Stage> stages = new HashMap<Stager, Stage>();
 
 	public Bot() {
