@@ -21,27 +21,41 @@ public class Bot {
 
 	public boolean start() {
 		boolean success = true;
-		Stager failedStage = null;
+		//Stager failedStage = null;
 		
-		for (Stager stage : Stager.values()) { //run through all stages
-			//boolean failed = false;
-			boolean stageFailed = true;
-			for(int i = 0; i < 3; i++) { //try to run stage 3 times
-				if(stager(stage)) {
-					stageFailed = false;
-					break; //success
-				}
-					
-			}
-			//failed
-			if(stageFailed) {
-				success = false;
-				failedStage = stage; //reducible currently
-				stages.get(failedStage).printFailMessage();
+		for(Stager stage : Stager.values()) {
+			if(!stager(stage)) { //if stage returns false
 				break;
 			}
-			
 		}
+		
+		return success;
+		
+		//OLD CODE START
+		
+//		for (Stager stage : Stager.values()) { //run through all stages
+//			//boolean failed = false;
+//			boolean stageFailed = true;
+//			for(int i = 0; i < 3; i++) { //try to run stage 3 times
+//				if(stager(stage)) {
+//					stageFailed = false;
+//					break; //success
+//				}
+//					
+//			}
+//			//failed
+//			if(stageFailed) {
+//				success = false;
+//				failedStage = stage; //reducible currently
+//				stages.get(failedStage).printFailMessage();
+//				break;
+//			}
+//			
+//		}
+		
+		//OLD CODE END
+		
+		
 		
 		// TESTING CODE START
 
@@ -59,12 +73,6 @@ public class Bot {
 
 		// TESTING CODE END
 		
-//		Scanner in = new Scanner(System.in);
-//		String input = in.next();
-		
-		
-
-		return success;
 	}
 
 	public boolean stager(Stager stage) {
