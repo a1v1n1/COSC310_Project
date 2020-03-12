@@ -70,3 +70,4 @@ public class FreeStage implements Stage{
 			"Sorry, I didn't quite catch that. Was that male or female?"};
 	
 }
+

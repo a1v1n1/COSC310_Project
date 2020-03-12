@@ -42,3 +42,4 @@ public class Review implements Stage{
 	String[] cannedReview3 = {"Uh, please only put numbers between 1 and 5.", "Those numbers aren't between 1 and 5"};
 	
 }
+
