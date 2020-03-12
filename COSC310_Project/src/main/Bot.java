@@ -19,10 +19,14 @@ public class Bot {
 	public Bot() {
 		name = botNames[(int) (Math.random() * botNames.length)];
 		//SampleStage SampleStage = new SampleStage();
-		IntroStage IntroStage = new IntroStage();
+		//IntroStage IntroStage = new IntroStage();
 		// create stage objects
 		//stages.put(Stager.SampleStage, SampleStage);
-		stages.put(Stager.intro, IntroStage);
+		stages.put(Stager.intro, new IntroStage());
+		stages.put(Stager.immediate, new ImmediateStage());
+		stages.put(Stager.free, new FreeStage());
+		stages.put(Stager.diagnose, new Diagnosis());
+		stages.put(Stager.review, new Review());
 	}
 
 	public boolean start() {
@@ -100,14 +104,14 @@ public class Bot {
 		case free:
 			completed = stages.get(Stager.free).start(this);
 			break;
-//		case diagnose:
-//			completed = true;
-//			break;
+		case diagnose:
+			completed = stages.get(Stager.diagnose).start(this);
+			break;
 //		case repeat:
 //			completed = true;
 //			break;
 		case review:
-			completed = true;
+			completed = stages.get(Stager.review).start(this);
 //			break;
 //		case outro:
 //			completed = true;
