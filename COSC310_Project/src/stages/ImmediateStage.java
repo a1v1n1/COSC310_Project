@@ -45,7 +45,7 @@ public class ImmediateStage implements Stage{
 	}
 	
 	public void printFailMessage() {
-		System.out.println("Intro stage failed. Returning to main for another \"agent\"");
+		System.out.println("Immediate stage failed. Returning to main for another \"agent\"");
 	}
 	
 	//Resources

@@ -53,7 +53,7 @@ public class FreeStage implements Stage{
 	}
 	
 	public void printFailMessage() {
-		System.out.println("Intro stage failed. Returning to main for another \"agent\"");
+		System.out.println("Free stage failed. Returning to main for another \"agent\"");
 	}
 	
 	//Resources
