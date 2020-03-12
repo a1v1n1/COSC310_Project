@@ -26,11 +26,12 @@ public class FreeStage implements Stage{
 		System.out.println(cannedGreets3[(int)(Math.random()*cannedGreets3.length)] +bot.username +", what is your sex?");
 		bCheck = false;
 		while(!bCheck) {//Ask for user sex
-			if(in.next().equalsIgnoreCase("male") || in.next().equalsIgnoreCase("boy") || in.next().equalsIgnoreCase("M")) {
+			String s = in.next();
+			if(s.equalsIgnoreCase("male") || s.equalsIgnoreCase("boy") || s.equalsIgnoreCase("M")) {
 				bot.userSex = "M";//User is male
 				bCheck = true;
 			}
-			if(in.next().equalsIgnoreCase("female") || in.next().equalsIgnoreCase("girl") || in.next().equalsIgnoreCase("F")) {
+			if(s.equalsIgnoreCase("female") || s.equalsIgnoreCase("girl") || s.equalsIgnoreCase("F")) {
 				bot.userSex = "F";//user is female
 				bCheck = true;
 			}
