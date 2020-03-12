@@ -11,15 +11,16 @@ public class Bot {
 	public String username;
 	public String userAddress;
 	public String userSex;
-	public String userAge;
+	public int userAge;
 	public Map<Stager, Stage> stages = new HashMap<Stager, Stage>();
 
 	public Bot() {
 		name = botNames[(int) Math.random() * botNames.length];
-		SampleStage SampleStage = new SampleStage();
-
+		//SampleStage SampleStage = new SampleStage();
+		IntroStage IntroStage = new IntroStage();
 		// create stage objects
-		stages.put(Stager.SampleStage, SampleStage);
+		//stages.put(Stager.SampleStage, SampleStage);
+		stages.put(Stager.intro, IntroStage);
 	}
 
 	public boolean start() {
@@ -82,33 +83,33 @@ public class Bot {
 		boolean completed = false;
 
 		switch (stage) {
-		case SampleStage:
-			completed = stages.get(Stager.SampleStage).start(this);
-			break;
+//		case SampleStage:
+//			completed = stages.get(Stager.SampleStage).start(this);
+//			break;
 		case intro:
-			completed = true;
+			completed = stages.get(Stager.intro).start(this);
 			break;
-		case need:
-			completed = true;
-			break;
+//		case need:
+//			completed = true;
+//			break;
 		case immediate:
-			completed = true;
+			completed = stages.get(Stager.immediate).start(this);
 			break;
 		case free:
-			completed = true;
+			completed = stages.get(Stager.free).start(this);
 			break;
-		case diagnose:
-			completed = true;
-			break;
-		case repeat:
-			completed = true;
-			break;
-		case review:
-			completed = true;
-			break;
-		case outro:
-			completed = true;
-			break;
+//		case diagnose:
+//			completed = true;
+//			break;
+//		case repeat:
+//			completed = true;
+//			break;
+//		case review:
+//			completed = true;
+//			break;
+//		case outro:
+//			completed = true;
+//			break;
 		}
 		return completed;
 	}

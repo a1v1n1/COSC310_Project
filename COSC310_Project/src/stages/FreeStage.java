@@ -38,7 +38,16 @@ public class FreeStage implements Stage{
 				System.out.println(cannedSex[(int)(Math.random()*cannedSex.length)]);//not M or F
 		}
 		System.out.println(cannedGreets4[(int)(Math.random()*cannedGreets4.length)]);//Ask for user age
-		bot.userAge = in.next();//Save user age
+		bCheck = false;
+		while(!bCheck) {//Ask for user sex
+			if(in.hasNextInt()) {
+				bot.userAge = in.nextInt();//Save user age
+				bCheck = true;
+			}
+			else
+				System.out.println("Please only input numbers as your age.");//age not in int
+		}
+		
 		
 		return true;//continue to DiagnoseStage
 	}
