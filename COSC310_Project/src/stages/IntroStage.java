@@ -13,11 +13,12 @@ public class IntroStage implements Stage{
 				+cannedGreets4[(int)(Math.random()*cannedGreets4.length)]);//Greet user, ask about medical help
 		boolean medX = false;
 		while(!medX) {
-			if(in.next().equalsIgnoreCase("no")) {
+			String answer = in.next();
+			if(answer.equalsIgnoreCase("no")) {
 				System.out.println("I see. Well, have a good day.");//User does not need help. END
 				return false;
 			}
-			if(in.next().equalsIgnoreCase("yes")) {
+			if(answer.equalsIgnoreCase("yes")) {
 				medX = true;
 			}
 			else

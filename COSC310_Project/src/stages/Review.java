@@ -19,7 +19,7 @@ public class Review implements Stage{
 					System.out.println(cannedReview3[(int)(Math.random()*cannedReview3.length)]);
 				}
 				else {
-					bot.userRating = in.nextInt();//Rating obtained
+					bot.userRating = rating;//Rating obtained
 					bCheck = true;	
 				}
 			}
