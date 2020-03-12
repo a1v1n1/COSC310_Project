@@ -164,8 +164,8 @@ public class Diagnosis implements Stage {
 	public void printer(Boolean firstLineOut, String toPrint) {
 		if(firstLineOut) {
 			System.out.print("Also, ");
-			firstLineOut = false;
 		}
+		firstLineOut = true;
 		System.out.println(toPrint);
 	}
 	
