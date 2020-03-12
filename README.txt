@@ -1,16 +1,16 @@
 ==========================================================
 ||			Group 32			||
 || Alvin Krisnanto Putra		54658380	||
-|| Manassawin Rotsawatsuk		12682936	||
+|| Manassawin Rotsawatsuk	(Winter)	12682936	||
 || Andrew						||
 ==========================================================
 This project aims to create a "medical" diagnosis chatbot. It is meant to help you find the correct type of physician based on your specific symptoms.
 
 The classes are organized into main and stages. Main is used to run the stages, while the stages handle branches of conversations that you enter into. Each additional feature is added into the project as another stage.
 
-The Main class
+The Main class handles the creation of the bot in a while loop so the user can talk to as many bots as they want. The Main class sends the user to Bot.start() once a bot has been created
 
-The Bot class
+The Bot class handles creating the different stages of the conversation and looping through them. The class uses enums to improve code readability. The bot name is also randomized upon creation of the bot.
 
 The Stage class is used as a parent to all other stage classes to guarantee that they have specific features.
 
