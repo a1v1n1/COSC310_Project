@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Bot {
 	public String name;
-
+	public String username;
 	public Map<Stager, Stage> stages = new HashMap<Stager, Stage>();
 
 	public Bot() {
