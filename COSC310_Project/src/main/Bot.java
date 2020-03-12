@@ -12,6 +12,8 @@ public class Bot {
 	public String userAddress;
 	public String userSex;
 	public int userAge;
+	public String userReview;
+	public int userRating;
 	public Map<Stager, Stage> stages = new HashMap<Stager, Stage>();
 
 	public Bot() {
