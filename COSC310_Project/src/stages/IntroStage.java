@@ -12,9 +12,9 @@ public class IntroStage implements Stage{
 		System.out.println(cannedGreets1[(int)(Math.random()*cannedGreets1.length)] +bot.name 
 				+cannedGreets4[(int)(Math.random()*cannedGreets4.length)]);//Greet user, ask about medical help
 		boolean medX = false;
-		while(medX == false) {
+		while(!medX) {
 			if(in.next().equalsIgnoreCase("no")) {
-				System.out.println("I see. Well, have a good day.");//User does not need help. End.
+				System.out.println("I see. Well, have a good day.");//User does not need help. END
 				return false;
 			}
 			if(in.next().equalsIgnoreCase("yes")) {
