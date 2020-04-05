@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Bot {
+public class Bot implements Runnable{
 	public String name;
 	public String username;
 	public String userAddress;
@@ -16,6 +16,8 @@ public class Bot {
 	public int userRating;
 	public Map<Stager, Stage> stages = new HashMap<Stager, Stage>();
 
+	
+	
 	public Bot() {
 		name = botNames[(int) (Math.random() * botNames.length)];
 		//SampleStage SampleStage = new SampleStage();
@@ -29,7 +31,7 @@ public class Bot {
 		stages.put(Stager.review, new Review());
 	}
 
-	public boolean start() {
+	public void run() {
 		boolean success = true;
 		//Stager failedStage = null;
 		
@@ -39,7 +41,7 @@ public class Bot {
 			}
 		}
 		
-		return success;
+		//return success;
 		
 		//OLD CODE START
 		

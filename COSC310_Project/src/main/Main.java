@@ -9,7 +9,13 @@ public class Main {
 			System.out.println("Enter 'start' to begin");
 			
 			Scanner in = new Scanner(System.in);
-			String input = in.next();
+			//String input = in.next();
+			GuiMain guiMain = new GuiMain();
+			guiMain.makeGui();
+			
+			run = false;
+			
+			/*
 			if(input.equalsIgnoreCase("start")) {
 				System.out.println("Connecting...");
 				Bot bot = new Bot();
@@ -29,6 +35,9 @@ public class Main {
 				}
 				
 			}
+			*/
+			
+			
 			
 		}
 		
