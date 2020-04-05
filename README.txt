@@ -1,7 +1,7 @@
 ==========================================================
 ||			Group 32			||
 || Alvin Krisnanto Putra		54658380	||
-|| Manassawin Rotsawatsuk	(Winter)	12682936	||
+|| Manassawin Rotsawatsuk (Winter)	12682936	||
 || Andrew						||
 ==========================================================
 This project aims to create a "medical" diagnosis chatbot. It is meant to help you find the correct type of physician based on your specific symptoms.

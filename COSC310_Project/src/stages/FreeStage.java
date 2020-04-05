@@ -9,23 +9,23 @@ public class FreeStage implements Stage{
 	public boolean start(Bot b) {
 		Bot bot = b;
 		//Scanner in = new Scanner(System.in);
-		System.out.println(cannedGreets1[(int)(Math.random()*cannedGreets1.length)]);//Ask if user is free to answer questions
+		GuiBot.println(cannedGreets1[(int)(Math.random()*cannedGreets1.length)]);//Ask if user is free to answer questions
 		boolean bCheck = false;
 		while(!bCheck) {
 			String answer = GuiBot.getInput();
 			if(answer.toLowerCase().contains("no")) {
-				System.out.println("I see. Well, have a good day.");//User does not need help. END
+				GuiBot.println("I see. Well, have a good day.");//User does not need help. END
 				return false;
 			}
 			if(answer.toLowerCase().contains("yes")) {
 				bCheck = true;
 			}
 			else
-				System.out.println(cannedYesNo[(int)(Math.random()*cannedYesNo.length)]);//not yes or no
+				GuiBot.println(cannedYesNo[(int)(Math.random()*cannedYesNo.length)]);//not yes or no
 		}
-		System.out.println(cannedGreets2[(int)(Math.random()*cannedGreets2.length)]);//Ask for user name
+		GuiBot.println(cannedGreets2[(int)(Math.random()*cannedGreets2.length)]);//Ask for user name
 		bot.username = GuiBot.getInput(); //Save user name
-		System.out.println(cannedGreets3[(int)(Math.random()*cannedGreets3.length)] +bot.username +", what is your sex?");
+		GuiBot.println(cannedGreets3[(int)(Math.random()*cannedGreets3.length)] +bot.username +", what is your sex?");
 		bCheck = false;
 		while(!bCheck) {//Ask for user sex
 			String s = GuiBot.getInput();
@@ -38,9 +38,9 @@ public class FreeStage implements Stage{
 				bCheck = true;
 			}
 			else
-				System.out.println(cannedSex[(int)(Math.random()*cannedSex.length)]);//not M or F
+				GuiBot.println(cannedSex[(int)(Math.random()*cannedSex.length)]);//not M or F
 		}
-		System.out.println(cannedGreets4[(int)(Math.random()*cannedGreets4.length)]);//Ask for user age
+		GuiBot.println(cannedGreets4[(int)(Math.random()*cannedGreets4.length)]);//Ask for user age
 		bCheck = false;
 		while(!bCheck) {
 			String age = " "+GuiBot.getInput()+" ";
@@ -65,7 +65,7 @@ public class FreeStage implements Stage{
 				}
 			}
 			if(!bCheck)
-				System.out.println("Please only input numbers as your age.");//age not in int
+				GuiBot.println("Please only input numbers as your age.");//age not in int
 		}
 		
 		
@@ -73,7 +73,7 @@ public class FreeStage implements Stage{
 	}
 	
 	public void printFailMessage() {
-		System.out.println("Free stage failed. Returning to main for another \"agent\"");
+		GuiBot.println("Free stage failed. Returning to main for another \"agent\"");
 	}
 	
 	//Resources

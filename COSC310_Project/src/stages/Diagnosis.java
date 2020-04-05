@@ -73,27 +73,27 @@ public class Diagnosis implements Stage {
 			title = "Miss ";
 		
 		
-		System.out.println("Alright " + title + bot.username + ", does your condition involve pain at all?");
+		GuiBot.println("Alright " + title + bot.username + ", does your condition involve pain at all?");
 		input = GuiBot.getInput();
 		
 		int number = 5;
 		if(input.toLowerCase().contains("yes") || input.toLowerCase().contains("yea")) {
-			System.out.println("I'm sorry to hear that. On a scale of 1-10 how would you rate your pain? With 1 being pretty much unnoticable and 10 being unbearable pain");
+			GuiBot.println("I'm sorry to hear that. On a scale of 1-10 how would you rate your pain? With 1 being pretty much unnoticable and 10 being unbearable pain");
 			input = GuiBot.getInput();
 			
 			try {
 				number = Integer.parseInt(input.replaceAll("\\D+", ""));
 			}
 			catch (Exception e) {
-				System.out.println("couldn't recognize a number"); //for testing
+				GuiBot.println("couldn't recognize a number"); //for testing
 				number = 5;
 			}
 			
-			System.out.println("Where is this pain located?");
+			GuiBot.println("Where is this pain located?");
 			
 		}
 		else {
-			System.out.println("I see. What seems to be bothering you today?");
+			GuiBot.println("I see. What seems to be bothering you today?");
 		}
 		
 		boolean hasProblem = true;
@@ -105,14 +105,14 @@ public class Diagnosis implements Stage {
 				}
 			}
 			
-			System.out.println("Is there anything else related to your health you are concerned about?");
+			GuiBot.println("Is there anything else related to your health you are concerned about?");
 			input = GuiBot.getInput();
 			if(!(input.toLowerCase().contains("yes") || input.toLowerCase().contains("yea"))) {
 				hasProblem = false;
-				System.out.println("Alright, Here's my recommendation:");
+				GuiBot.println("Alright, Here's my recommendation:");
 			}
 			else {
-				System.out.println("Ok, what else is bothering you today?");
+				GuiBot.println("Ok, what else is bothering you today?");
 			}
 		}
 		
@@ -168,7 +168,7 @@ public class Diagnosis implements Stage {
 		if(bot.userSex.equalsIgnoreCase("f"))
 			printer(firstLineOut, "You may want to see a gynecologist. \nA gynecologist deals with women's health including pregnancy, childbirth and overall wommen's reproductive health");
 		
-		System.out.println("Would you like me to attempt to diagnose you again?");
+		GuiBot.println("Would you like me to attempt to diagnose you again?");
 		input =  GuiBot.getInput();
 		if(input.toLowerCase().contains("yes") || input.toLowerCase().contains("yea")) {
 			this.start(bot); //repeat diagnosis
@@ -179,10 +179,10 @@ public class Diagnosis implements Stage {
 	
 	public void printer(Boolean firstLineOut, String toPrint) {
 		if(firstLineOut) {
-			System.out.print("Also, ");
+			GuiBot.print("Also, ");
 		}
 		firstLineOut = true;
-		System.out.println(toPrint);
+		GuiBot.println(toPrint);
 	}
 	
 	//Resources

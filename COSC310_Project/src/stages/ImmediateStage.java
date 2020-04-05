@@ -9,7 +9,7 @@ public class ImmediateStage implements Stage{
 	public boolean start(Bot b) {
 		Bot bot = b;
 		//Scanner in = new Scanner(System.in);
-		System.out.println(cannedCheck1[(int)(Math.random()*cannedCheck1.length)]);//Ask about immediate medical help
+		GuiBot.println(cannedCheck1[(int)(Math.random()*cannedCheck1.length)]);//Ask about immediate medical help
 		boolean EMCheck = false;
 		while(!EMCheck) {
 			String answer = GuiBot.getInput();
@@ -20,13 +20,13 @@ public class ImmediateStage implements Stage{
 				EMCheck = true;
 			}
 			else
-				System.out.println(cannedYesNo[(int)(Math.random()*cannedYesNo.length)]);//not yes or no
+				GuiBot.println(cannedYesNo[(int)(Math.random()*cannedYesNo.length)]);//not yes or no
 		}
-		System.out.println("Alright, please give us your address and we'll dispatch 911 to that address.");
+		GuiBot.println("Alright, please give us your address and we'll dispatch 911 to that address.");
 		EMCheck = false;
 		while(!EMCheck) {
 			bot.userAddress = GuiBot.getInput();
-			System.out.println("Is this the correct address: /n" +bot.userAddress);
+			GuiBot.println("Is this the correct address: /n" +bot.userAddress);
 			boolean ACheck = false;
 			while(!ACheck) {
 				String answer = GuiBot.getInput();
@@ -35,20 +35,20 @@ public class ImmediateStage implements Stage{
 					EMCheck = true;
 				}
 				if(answer.toLowerCase().contains("no")) {
-					System.out.println("Okay, what is the correct address?");
+					GuiBot.println("Okay, what is the correct address?");
 					ACheck = true;
 				}
 				else
-					System.out.println(cannedYesNo[(int)(Math.random()*cannedYesNo.length)]);//not yes or no
+					GuiBot.println(cannedYesNo[(int)(Math.random()*cannedYesNo.length)]);//not yes or no
 			}
 		}
-		System.out.println("We're sending 911 your way right now. Please stay where you are until they arrive.");
+		GuiBot.println("We're sending 911 your way right now. Please stay where you are until they arrive.");
 		//Implement calling 911 maybe
 		return false;//911 called for user. END
 	}
 	
 	public void printFailMessage() {
-		System.out.println("Immediate stage failed. Returning to main for another \"agent\"");
+		GuiBot.println("Immediate stage failed. Returning to main for another \"agent\"");
 	}
 	
 	//Resources

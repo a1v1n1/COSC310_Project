@@ -9,9 +9,9 @@ public class Review implements Stage{
 	public boolean start(Bot b) {
 		Bot bot = b;
 		//Scanner in = new Scanner(System.in);
-		System.out.println(cannedReview1[(int)(Math.random()*cannedReview1.length)]);//Ask for user feedback
+		GuiBot.println(cannedReview1[(int)(Math.random()*cannedReview1.length)]);//Ask for user feedback
 		bot.userReview =  GuiBot.getInput();
-		System.out.println(cannedReview2[(int)(Math.random()*cannedReview2.length)]);//Ask for 1 to 5 rating
+		GuiBot.println(cannedReview2[(int)(Math.random()*cannedReview2.length)]);//Ask for 1 to 5 rating
 		boolean bCheck = false;
 		while(!bCheck) {
 			String rating = GuiBot.getInput();
@@ -22,15 +22,15 @@ public class Review implements Stage{
 				}
 			}
 			if(!bCheck)//Number not within 1 and 5
-				System.out.println(cannedReview3[(int)(Math.random()*cannedReview3.length)]);
+				GuiBot.println(cannedReview3[(int)(Math.random()*cannedReview3.length)]);
 		}
-		System.out.println("Thank you for your review! I hope you have a gre-");
+		GuiBot.println("Thank you for your review! I hope you have a gre-");
 		
 		return true;//continue to DiagnoseStage
 	}
 	
 	public void printFailMessage() {
-		System.out.println("Review stage failed. Returning to main for another \"agent\"");
+		GuiBot.println("Review stage failed. Returning to main for another \"agent\"");
 	}
 	
 	//Resources
