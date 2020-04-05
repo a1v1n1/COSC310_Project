@@ -13,6 +13,7 @@ import javax.swing.*;
 public class GuiBot {
 	//BufferedInputStream in = new BufferedInputStream(new ByteArrayInputStream(new byte[0]));
 	static String inputString = "";
+	static JTextArea text;
 	public static String getInput() {
 		while(inputString.equals("")) {
 			try {
@@ -28,6 +29,14 @@ public class GuiBot {
 		
 	}
 	
+	public static void print(String toPrint) {
+		text.append(toPrint);
+	}
+	
+	public static void println(String toPrint) {
+		print(toPrint + "\n");
+	}
+	
 	public boolean makeGui() {
 		boolean success = false;
 		//System.setIn(in);
@@ -38,7 +47,7 @@ public class GuiBot {
 		//WINDOW INITIATION
 		JFrame frame = new JFrame("Agent: " + name);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.setSize(500,400);
+		frame.setSize(1000,400);
 		Container con = frame.getContentPane();
 		
 		//PANEL INITIATION
@@ -54,15 +63,15 @@ public class GuiBot {
 		con.add(top,BorderLayout.NORTH);
 		
 		//MIDDLE
-		JTextArea text = new JTextArea();
+		text = new JTextArea();
 		JScrollPane scroll = new JScrollPane(text);
-		scroll.setPreferredSize(new Dimension(300,200));
+		scroll.setPreferredSize(new Dimension(800,200));
 		middle.add(scroll);
 		con.add(middle,BorderLayout.CENTER);
 		
 		//MIDDLE CODE
 		text.setEditable(false);
-		text.setText("test");
+		//text.setText("test");
 		
 		//BOTTOM
 		JLabel inputLabel = new JLabel("Input: ");

@@ -10,9 +10,9 @@ public class IntroStage implements Stage{
 	public boolean start(Bot b) {
 		int unin = 0;
 		Bot bot = b;
-		System.out.println("");
+		GuiBot.println("");
 		//Scanner in = new Scanner(System.in);
-		System.out.println(cannedGreets1[(int)(Math.random()*cannedGreets1.length)] +bot.name 
+		GuiBot.println(cannedGreets1[(int)(Math.random()*cannedGreets1.length)] +bot.name 
 				+cannedGreets2[(int)(Math.random()*cannedGreets2.length)]);//Greet user, ask about medical help
 		boolean medX = false;
 		while(!medX) {
@@ -41,7 +41,7 @@ public class IntroStage implements Stage{
 			
 			//String answer = in.next();
 			if(answer.toLowerCase().contains("no")) {
-				System.out.println("I see. Well, have a good day.");//User does not need help. END
+				GuiBot.println("I see. Well, have a good day.");//User does not need help. END
 				return false;
 			}
 			if(answer.toLowerCase().contains("yes")) {
@@ -49,10 +49,10 @@ public class IntroStage implements Stage{
 			}
 			else {
 				if(unin<5) {
-					System.out.println(cannedTopic[(int)(Math.random()*cannedTopic.length)]);//not yes or no
+					GuiBot.println(cannedTopic[(int)(Math.random()*cannedTopic.length)]);//not yes or no
 				}
 				else {
-					System.out.println("It seems that I cannot help you, have a good day.");
+					GuiBot.println("It seems that I cannot help you, have a good day.");
 					return false;
 				}
 				unin++;
@@ -62,7 +62,7 @@ public class IntroStage implements Stage{
 	}
 	
 	public void printFailMessage() {
-		System.out.println("Intro stage failed. Returning to main for another \"agent\"");
+		GuiBot.println("Intro stage failed. Returning to main for another \"agent\"");
 	}
 	
 	
