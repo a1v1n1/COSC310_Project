@@ -57,7 +57,7 @@ public class IntroStage implements Stage{
 				unin++;
 			}
 		}
-		return true;//continue to ImmediateStage
+		return true;//continue to ImmediateStage//
 	}
 	
 	public void printFailMessage() {
