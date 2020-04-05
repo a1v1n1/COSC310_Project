@@ -30,7 +30,7 @@ public class GuiBot {
 	}
 	
 	public static void print(String toPrint) {
-		text.append(toPrint);
+		text.setText(text.getText() + toPrint);
 	}
 	
 	public static void println(String toPrint) {
@@ -71,6 +71,7 @@ public class GuiBot {
 		
 		//MIDDLE CODE
 		text.setEditable(false);
+		
 		//text.setText("test");
 		
 		//BOTTOM
@@ -88,15 +89,18 @@ public class GuiBot {
 		con.add(bottom, BorderLayout.SOUTH);
 		
 		//BOTTOM CODE
-		send.addActionListener(new ActionListener() {
+		ActionListener inputAction = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String userInput = input.getText();
-				//sendToBot(userInput);
 				inputString = userInput;
 				input.setText("");
-				
-			}
-		});
+				text.append(userInput + "\n");
+				}
+			};
+		
+		
+		send.addActionListener(inputAction);
+		input.addActionListener(inputAction);
 		
 		
 		frame.setVisible(true);
