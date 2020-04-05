@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import javax.swing.*;
+import javax.swing.text.DefaultCaret;
 
 public class GuiBot {
 	//BufferedInputStream in = new BufferedInputStream(new ByteArrayInputStream(new byte[0]));
@@ -25,8 +26,6 @@ public class GuiBot {
 		String buffer = inputString;
 		inputString = "";
 		return buffer;
-		
-		
 	}
 	
 	public static void print(String toPrint) {
@@ -65,12 +64,16 @@ public class GuiBot {
 		//MIDDLE
 		text = new JTextArea();
 		JScrollPane scroll = new JScrollPane(text);
+		//bar = scroll.getVerticalScrollBar();
 		scroll.setPreferredSize(new Dimension(800,200));
 		middle.add(scroll);
 		con.add(middle,BorderLayout.CENTER);
 		
 		//MIDDLE CODE
 		text.setEditable(false);
+		text.setLineWrap(true);
+		DefaultCaret caret = (DefaultCaret)text.getCaret();
+		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 		
 		//text.setText("test");
 		
@@ -94,9 +97,11 @@ public class GuiBot {
 				String userInput = input.getText();
 				inputString = userInput;
 				input.setText("");
-				text.append(userInput + "\n");
-				}
-			};
+				//text.append(userInput + "\n");
+				text.setText(text.getText() + userInput + "\n");
+				//bar.setValue(bar.getMaximum());
+			}
+		};
 		
 		
 		send.addActionListener(inputAction);
