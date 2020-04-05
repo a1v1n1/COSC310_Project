@@ -1,10 +1,14 @@
 package main;
 
+import net.sf.extjwnl.JWNLException;
+import net.sf.extjwnl.dictionary.Dictionary;
+
 public class MainTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws JWNLException {
 		// TODO Auto-generated method stub
-		GuiMain.makeGui();
+		Dictionary d = Dictionary.getDefaultResourceInstance();
+		
 	}
 
 }
