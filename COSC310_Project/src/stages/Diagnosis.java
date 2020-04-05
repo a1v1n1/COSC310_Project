@@ -162,7 +162,7 @@ public class Diagnosis implements Stage {
 		if(badBodyParts.get("ear") || badBodyParts.get("nose") || badBodyParts.get("throat") || badBodyParts.get("sinus") || badBodyParts.get("head") || badBodyParts.get("neck") || badBodyParts.get("lung")|| badBodyParts.get("mouth"))
 			printer(firstLineOut, "You should go see an Otolaryngologist. \nAn otolaryngologist treats diseases in the ears, nose, throat, sinuses, head, neck and respiratory system");
 		
-		if(badBodyParts.get("foot") ||badBodyParts.get("ankle"))
+		if(badBodyParts.get("foot") || badBodyParts.get("ankle") || badBodyParts.get("leg"))
 			printer(firstLineOut, "You should go see a Podiatrist. \nA podiatrist deals with abnormal conditions in the lower human limbs");
 		
 		if(bot.userSex.equalsIgnoreCase("f"))

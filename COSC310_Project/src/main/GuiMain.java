@@ -40,7 +40,7 @@ public class GuiMain{
 		
 		//MIDDLE CODE
 		text.setEditable(false);
-		text.setText("test");
+		text.setText("Welcome to the lobby!\nFeel free to Connect to an agent when you're ready");
 		
 		DefaultCaret caret = (DefaultCaret)text.getCaret();
 		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
@@ -70,6 +70,7 @@ public class GuiMain{
 				
 			}
 		});
+		button.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		
 		
 		
