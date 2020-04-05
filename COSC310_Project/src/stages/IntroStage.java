@@ -57,7 +57,7 @@ public class IntroStage implements Stage{
 				unin++;
 			}
 		}
-		return true;//continue to ImmediateStage
+		return true;//continue to ImmediateStage//
 	}
 	
 	public void printFailMessage() {
@@ -69,10 +69,10 @@ public class IntroStage implements Stage{
 	String[] cannedGreets1 = {"Hello, my name is ", "Hi there, I'm ", "Greetings, I'm "};
 	String[] cannedGreets2 = {", did you need medical attention?", ", are you looking for medical attention?",
 			", do you need medical help?"};
-	String[] cannedTopic = {"Sorry, I don't know much about that topic. Could I help you with getting medical help or [TOPIC TWO]?",
-			"I'm not trained on that topic. Do you want help with medical attention or [TOPIC TWO]?", 
-			"I can only help you in getting medical attention and [TOPIC TWO]. Would you like help with that?", 
-			"I'm sorry did you need help with getting medical attention or [TOPIC TWO]?",
-			"That's not something I'm familiar with. Can I help you with getting medical help or [TOPIC TWO]?"};
+	String[] cannedTopic = {"Sorry, I don't know much about that topic. Could I help you with getting medical help?",
+			"I'm not trained on that topic. Do you want help with medical attention?", 
+			"I can only help you in getting medical attention. Would you like help with that?", 
+			"I'm sorry did you need help with getting medical attention?",
+			"That's not something I'm familiar with. Can I help you with getting medical help?"};
 	
 }
