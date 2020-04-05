@@ -16,7 +16,7 @@ public class ImmediateStage implements Stage{
 			if(answer.toLowerCase().contains("no")) { //User does not need 911. Continue to Free stage.
 				return true;
 			}
-			if(answer.toLowerCase().contains("yes")) {//User needs 911. Ask for address
+			else if(answer.toLowerCase().contains("yes")) {//User needs 911. Ask for address
 				EMCheck = true;
 			}
 			else
@@ -26,7 +26,7 @@ public class ImmediateStage implements Stage{
 		EMCheck = false;
 		while(!EMCheck) {
 			bot.userAddress = GuiBot.getInput();
-			GuiBot.println("Is this the correct address: /n" +bot.userAddress);
+			GuiBot.println("Is this the correct address: \n" +bot.userAddress);
 			boolean ACheck = false;
 			while(!ACheck) {
 				String answer = GuiBot.getInput();
@@ -34,7 +34,7 @@ public class ImmediateStage implements Stage{
 					ACheck = true;
 					EMCheck = true;
 				}
-				if(answer.toLowerCase().contains("no")) {
+				else if(answer.toLowerCase().contains("no")) {
 					GuiBot.println("Okay, what is the correct address?");
 					ACheck = true;
 				}

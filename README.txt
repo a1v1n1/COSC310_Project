@@ -36,3 +36,6 @@ Addition of the GuiMain class forms the GUI of the main window, which allows the
 Addition of the GuiBot class forms the GUI for the chat window, which allows user to chat with an agent within a GUI instead of a console.
 
 Addition of the ChatbotSocket class enables the communication of the chatbot with other chatbots, where it is able to communicate through the use of sockets.
+
+Features:
+In the Documentation pdf to include images.
