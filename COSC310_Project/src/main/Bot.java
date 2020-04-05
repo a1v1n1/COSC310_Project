@@ -40,6 +40,7 @@ public class Bot implements Runnable{
 				break;
 			}
 		}
+		GuiBot.println("Disconnected...");
 		
 		//return success;
 		

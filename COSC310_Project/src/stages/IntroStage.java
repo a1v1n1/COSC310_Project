@@ -10,7 +10,6 @@ public class IntroStage implements Stage{
 	public boolean start(Bot b) {
 		int unin = 0;
 		Bot bot = b;
-		GuiBot.println("");
 		//Scanner in = new Scanner(System.in);
 		GuiBot.println(cannedGreets1[(int)(Math.random()*cannedGreets1.length)] +bot.name 
 				+cannedGreets2[(int)(Math.random()*cannedGreets2.length)]);//Greet user, ask about medical help
