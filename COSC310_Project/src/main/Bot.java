@@ -11,9 +11,9 @@ public class Bot implements Runnable{
 	public String username;
 	public String userAddress;
 	public String userSex;
-	public int userAge;
+	public String userAge;
 	public String userReview;
-	public int userRating;
+	public String userRating;
 	public Map<Stager, Stage> stages = new HashMap<Stager, Stage>();
 
 	

@@ -1,5 +1,6 @@
 package stages;
 import main.Bot;
+import main.GuiBot;
 import main.Stage;
 import java.util.HashMap;
 import java.util.Map;
@@ -61,9 +62,9 @@ public class Diagnosis implements Stage {
 		for(String bodyPart : bodyParts ) {
 			badBodyParts.put(bodyPart, false);
 		}
-		Scanner in = new Scanner(System.in);
+		//Scanner in = new Scanner(System.in);
 		String input = "";
-		in.useDelimiter("\\n");
+		//in.useDelimiter("\\n");
 		
 		String title = "";
 		if(bot.userSex.equalsIgnoreCase("M"))
@@ -71,13 +72,14 @@ public class Diagnosis implements Stage {
 		if(bot.userSex.equalsIgnoreCase("F"))
 			title = "Miss ";
 		
+		
 		System.out.println("Alright " + title + bot.username + ", does your condition involve pain at all?");
-		input = in.next();
+		input = GuiBot.getInput();
 		
 		int number = 5;
 		if(input.toLowerCase().contains("yes") || input.toLowerCase().contains("yea")) {
 			System.out.println("I'm sorry to hear that. On a scale of 1-10 how would you rate your pain? With 1 being pretty much unnoticable and 10 being unbearable pain");
-			input = in.next();
+			input = GuiBot.getInput();
 			
 			try {
 				number = Integer.parseInt(input.replaceAll("\\D+", ""));
@@ -96,7 +98,7 @@ public class Diagnosis implements Stage {
 		
 		boolean hasProblem = true;
 		while(hasProblem) {
-			input = in.next();
+			input = GuiBot.getInput();
 			for(String bodyPart : bodyParts) {
 				if(input.toLowerCase().contains(bodyPart)) {
 					badBodyParts.replace(bodyPart, true);
@@ -104,7 +106,7 @@ public class Diagnosis implements Stage {
 			}
 			
 			System.out.println("Is there anything else related to your health you are concerned about?");
-			input = in.next();
+			input = GuiBot.getInput();
 			if(!(input.toLowerCase().contains("yes") || input.toLowerCase().contains("yea"))) {
 				hasProblem = false;
 				System.out.println("Alright, Here's my recommendation:");
@@ -116,7 +118,13 @@ public class Diagnosis implements Stage {
 		
 		firstLineOut = false;
 		
-		if(bot.userAge < 19)
+		boolean underNineteen = false;
+		for(String ageCheck : ageList) {
+			if(bot.userAge.toLowerCase().contains(ageCheck))
+				underNineteen = true;
+		}
+		
+		if(underNineteen)
 			printer(firstLineOut, "You should go see a Pediatrician. \nA pediatrician deals with humans from birth to young adulthood");
 		
 		if(badBodyParts.get("heart") || badBodyParts.get("blood"))
@@ -153,7 +161,7 @@ public class Diagnosis implements Stage {
 			printer(firstLineOut, "You may want to see a gynecologist. \nA gynecologist deals with women's health including pregnancy, childbirth and overall wommen's reproductive health");
 		
 		System.out.println("Would you like me to attempt to diagnose you again?");
-		input = in.next();
+		input =  GuiBot.getInput();
 		if(input.toLowerCase().contains("yes") || input.toLowerCase().contains("yea")) {
 			this.start(bot); //repeat diagnosis
 		}
@@ -168,6 +176,11 @@ public class Diagnosis implements Stage {
 		firstLineOut = true;
 		System.out.println(toPrint);
 	}
+	
+	//Resources
+	String[] ageList = {"one", "1", "two", "2", "three", "3", "four", "4", "five", "5", "fix", "6", "seven", "7", "eight", "8", 
+			"nine", "9", "ten", "10", "eleven", "11", "twelve", "12", "thirteen", "13", "fourteen", "14", "fifteen", "15",
+			"sixteen", "16", "seventeen", "17", "eighteen", "18"};
 	
 }
 

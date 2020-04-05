@@ -11,7 +11,7 @@ public class IntroStage implements Stage{
 		int unin = 0;
 		Bot bot = b;
 		System.out.println("");
-		Scanner in = new Scanner(System.in);
+		//Scanner in = new Scanner(System.in);
 		System.out.println(cannedGreets1[(int)(Math.random()*cannedGreets1.length)] +bot.name 
 				+cannedGreets2[(int)(Math.random()*cannedGreets2.length)]);//Greet user, ask about medical help
 		boolean medX = false;
@@ -40,11 +40,11 @@ public class IntroStage implements Stage{
 //			}
 			
 			//String answer = in.next();
-			if(answer.equalsIgnoreCase("no")) {
+			if(answer.toLowerCase().contains("no")) {
 				System.out.println("I see. Well, have a good day.");//User does not need help. END
 				return false;
 			}
-			if(answer.equalsIgnoreCase("yes")) {
+			if(answer.toLowerCase().contains("yes")) {
 				medX = true;
 			}
 			else {

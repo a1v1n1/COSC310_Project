@@ -2,20 +2,21 @@ package stages;
 import java.util.Scanner;
 
 import main.Bot;
+import main.GuiBot;
 import main.Stage;
 public class ImmediateStage implements Stage{
 	
 	public boolean start(Bot b) {
 		Bot bot = b;
-		Scanner in = new Scanner(System.in);
+		//Scanner in = new Scanner(System.in);
 		System.out.println(cannedCheck1[(int)(Math.random()*cannedCheck1.length)]);//Ask about immediate medical help
 		boolean EMCheck = false;
 		while(!EMCheck) {
-			String answer = in.next();
-			if(answer.equalsIgnoreCase("no")) { //User does not need 911. Continue to Free stage.
+			String answer = GuiBot.getInput();
+			if(answer.toLowerCase().contains("no")) { //User does not need 911. Continue to Free stage.
 				return true;
 			}
-			if(answer.equalsIgnoreCase("yes")) {//User needs 911. Ask for address
+			if(answer.toLowerCase().contains("yes")) {//User needs 911. Ask for address
 				EMCheck = true;
 			}
 			else
@@ -24,16 +25,16 @@ public class ImmediateStage implements Stage{
 		System.out.println("Alright, please give us your address and we'll dispatch 911 to that address.");
 		EMCheck = false;
 		while(!EMCheck) {
-			bot.userAddress = in.nextLine();
+			bot.userAddress = GuiBot.getInput();
 			System.out.println("Is this the correct address: /n" +bot.userAddress);
 			boolean ACheck = false;
 			while(!ACheck) {
-				String answer = in.next();
-				if(answer.equalsIgnoreCase("yes")) { //Address confirmed. Send message to 911
+				String answer = GuiBot.getInput();
+				if(answer.toLowerCase().contains("yes")) { //Address confirmed. Send message to 911
 					ACheck = true;
 					EMCheck = true;
 				}
-				if(answer.equalsIgnoreCase("no")) {
+				if(answer.toLowerCase().contains("no")) {
 					System.out.println("Okay, what is the correct address?");
 					ACheck = true;
 				}
