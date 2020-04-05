@@ -1,7 +1,9 @@
 package stages;
+import java.io.IOException;
 import java.util.Scanner;
 
 import main.Bot;
+import main.GuiBot;
 import main.Stage;
 public class IntroStage implements Stage{
 	
@@ -14,7 +16,30 @@ public class IntroStage implements Stage{
 				+cannedGreets2[(int)(Math.random()*cannedGreets2.length)]);//Greet user, ask about medical help
 		boolean medX = false;
 		while(!medX) {
-			String answer = in.next();
+//			try {
+//				while(System.in.available() == 0) {
+//					System.out.println("waiting for input");
+//					try {
+//						Thread.sleep(1000);
+//					} catch (InterruptedException e) {
+//						e.printStackTrace();
+//					}
+//				}
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+			String answer = GuiBot.getInput();
+//			while(answer.equals("")) {
+//				answer = GuiBot.getInput();
+////				System.out.println("waiting " + answer);
+//				try {
+//				Thread.sleep(1);
+//				} catch (InterruptedException e) {
+//					e.printStackTrace();
+//				}
+//			}
+			
+			//String answer = in.next();
 			if(answer.equalsIgnoreCase("no")) {
 				System.out.println("I see. Well, have a good day.");//User does not need help. END
 				return false;
