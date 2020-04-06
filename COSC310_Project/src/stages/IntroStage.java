@@ -4,7 +4,10 @@ import java.util.Scanner;
 
 import main.Bot;
 import main.GuiBot;
+import main.InputProcess;
+import main.SpellCheck;
 import main.Stage;
+import net.sf.extjwnl.JWNLException;
 public class IntroStage implements Stage{
 	
 	public boolean start(Bot b) {
@@ -45,12 +48,12 @@ public class IntroStage implements Stage{
 //			}
 			
 			//String answer = in.next();
+			if(answer.toLowerCase().contains("yes")||InputProcess.check(answer, "yes")) {
+				medX = true;
+			}
 			if(answer.toLowerCase().contains("no")) {
 				GuiBot.println("I see. Well, have a good day.");//User does not need help. END
 				return false;
-			}
-			if(answer.toLowerCase().contains("yes")) {
-				medX = true;
 			}
 			else {
 				if(unin<500) {

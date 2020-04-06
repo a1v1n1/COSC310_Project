@@ -13,10 +13,25 @@ import net.sf.extjwnl.data.list.PointerTargetNodeList;
 import net.sf.extjwnl.dictionary.Dictionary;
 
 public class InputProcess {
-	public static boolean checkSynonym(String input, String word) throws JWNLException {
+	
+	public static boolean check(String input, String word) {
+		boolean contains = false;
+		
+		if(checkSynonym(input,word)||SpellCheck.hasTypoLineHelper(input, word))
+			contains = true;
+		
+		return contains;
+	}
+	
+	public static boolean checkSynonym(String input, String word) {
 		boolean synonymFound = false;
 		
-		List<String> synonyms = getSynonyms(word);
+		List<String> synonyms = new ArrayList<String>();
+		try {
+			synonyms = getSynonyms(word);
+		} catch (JWNLException e) {
+			e.printStackTrace();
+		}
 		String[] inputWords = input.split("\\s+");
 		
 		for(String inputWord : inputWords) {

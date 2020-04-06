@@ -16,7 +16,22 @@ public class SpellCheck {
 	}
 	//
 	
-	static String hasTypoLine(String input) throws JWNLException {
+	public static boolean hasTypoLineHelper(String input, String word) {
+		boolean contains = false;
+		
+		try {
+			if(hasTypoLine(input.toLowerCase()).contains(word)) {
+				contains = true;
+			}
+		} catch (JWNLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return contains;
+	}
+	
+	public static String hasTypoLine(String input) throws JWNLException {
 		String[] array = input.split("\\s+");
 		for(int i = 0; i < array.length; i++) {
 			array[i] = hasTypo(array[i]);
@@ -25,10 +40,11 @@ public class SpellCheck {
 		for(String s : array) {
 			toReturn += s + " ";
 		}
+		toReturn = toReturn.substring(0, toReturn.length()-1);
 		return toReturn;
 	}
 	
-	static String hasTypo(String t) throws JWNLException {
+	public static String hasTypo(String t) throws JWNLException {
 		Dictionary dictionary = Dictionary.getDefaultResourceInstance();
 	    List<POS> pos = POS.getAllPOS();
 	    IndexWord GET = dictionary.getIndexWord(pos.get(0), t);
