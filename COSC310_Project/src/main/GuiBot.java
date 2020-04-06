@@ -68,12 +68,12 @@ public class GuiBot {
 	
 	public boolean makeGui() {
 		boolean success = false;
-		try {
-			botSocket = new ChatbotSocket();
-		} catch (Exception ex) {
-			// TODO Auto-generated catch block
-			ex.printStackTrace();
-		} 
+//		try {
+//			botSocket = new ChatbotSocket();
+//		} catch (Exception ex) {
+//			// TODO Auto-generated catch block
+//			ex.printStackTrace();
+//		} 
 		
 		bot = new Bot();
 		String name = bot.name;

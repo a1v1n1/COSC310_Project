@@ -8,13 +8,26 @@ import java.util.List;
 public class SpellCheck {
 	
 	public static void main(String[] args) throws JWNLException {
-		String test = "dortor";
-		System.out.println(hasTypo(test));
+		String test = "dortor dof hoase paent";
+		System.out.println(hasTypoLine(test));
 	}
 	
 	public SpellCheck() {
 	}
 	//
+	
+	static String hasTypoLine(String input) throws JWNLException {
+		String[] array = input.split("\\s+");
+		for(int i = 0; i < array.length; i++) {
+			array[i] = hasTypo(array[i]);
+		}
+		String toReturn = "";
+		for(String s : array) {
+			toReturn += s + " ";
+		}
+		return toReturn;
+	}
+	
 	static String hasTypo(String t) throws JWNLException {
 		Dictionary dictionary = Dictionary.getDefaultResourceInstance();
 	    List<POS> pos = POS.getAllPOS();
