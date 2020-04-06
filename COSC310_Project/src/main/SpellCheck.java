@@ -8,7 +8,7 @@ import java.util.List;
 public class SpellCheck {
 	
 	public static void main(String[] args) throws JWNLException {
-		String test = "dortor dof hoase paent yea ni yoo na yeh nt";
+		String test = "dortor dof hoase paent yea ni yoo na yeh goobd";
 		System.out.println(hasTypoLine(test));
 	}
 	
@@ -71,6 +71,15 @@ public class SpellCheck {
 	    		}
 	    	}
 	    	checkedWord[i] = storage[i];
+	    }
+	    for(int i = checkedWord.length - 1; i > 0; i--) {
+	    	StringBuilder brokenWord = new StringBuilder(t);
+	    	brokenWord.deleteCharAt(i);
+	    	String constr = brokenWord.toString();
+	    	GET = dictionary.getIndexWord(pos.get(0), constr);
+	    	if(!(GET==null) && constr.length() > 3) {
+    			return constr;
+    		}
 	    }
 	    return t;
 	}
