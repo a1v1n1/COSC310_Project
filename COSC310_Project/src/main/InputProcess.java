@@ -4,41 +4,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.sf.extjwnl.JWNLException;
-import net.sf.extjwnl.dictionary.Dictionary;
-import net.sf.extjwnl.data.*;
+import net.sf.extjwnl.data.POS;
+import net.sf.extjwnl.data.PointerUtils;
+import net.sf.extjwnl.data.Synset;
+import net.sf.extjwnl.data.Word;
 import net.sf.extjwnl.data.list.PointerTargetNode;
 import net.sf.extjwnl.data.list.PointerTargetNodeList;
-//import net.sf.extjwnl
+import net.sf.extjwnl.dictionary.Dictionary;
 
-public class MainTest {
-
-	public static void main(String[] args) throws JWNLException {
-		// TODO Auto-generated method stub
-		Dictionary d = Dictionary.getDefaultResourceInstance();
-		List<POS> pos = POS.getAllPOS();
+public class InputProcess {
+	public static boolean checkSynonym(String input, String word) throws JWNLException {
+		boolean synonymFound = false;
 		
-		IndexWord GET = d.getIndexWord(pos.get(0),"dog");
-		List<Synset> GETsynList = GET.getSenses();
-		PointerTargetNodeList synonyms = PointerUtils.getDirectHyponyms(GETsynList.get(0));
-		synonyms.print();
-		List<Word> words = synonyms.get(0).getSynset().getWords();
-		System.out.println(words.get(0).getLemma());
+		List<String> synonyms = getSynonyms(word);
+		String[] inputWords = input.split("\\s+");
 		
-		
-		
-		
-		System.out.println();
-		
-		String synonym = PointerUtils.getDirectHyponyms(GET.getSenses().get(0)).get(1).getSynset().getWords().get(0).getLemma();
-		
-		System.out.println(synonym);
-		
-		List<String> allSynonym = getSynonyms("plate");
-		for(String s : allSynonym) {
-			System.out.println(s);
+		for(String inputWord : inputWords) {
+			for(String synonym : synonyms) {
+				if(inputWord.equalsIgnoreCase(synonym)) {
+					synonymFound = true;
+				}
+			}
 		}
-		
+		return synonymFound;
 	}
+	
 	public static List<String> getSynonyms(String toFind) throws JWNLException {
 		Dictionary d = Dictionary.getDefaultResourceInstance();
 		List<String> toReturn = new ArrayList<String>();
@@ -56,7 +46,6 @@ public class MainTest {
 						}
 					}
 				}
-				
 			} catch (IndexOutOfBoundsException e) {
 				System.out.println("OOB" + POS.getPOSForId(pos.getId()).toString());
 			} catch (NullPointerException e) {
@@ -65,6 +54,4 @@ public class MainTest {
 		}
 		return toReturn;
 	}
-	
-
 }
