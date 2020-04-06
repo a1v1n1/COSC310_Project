@@ -14,7 +14,7 @@ public class SpellCheck {
 	
 	public SpellCheck() {
 	}
-	
+	//
 	static String hasTypo(String t) throws JWNLException {
 		Dictionary dictionary = Dictionary.getDefaultResourceInstance();
 	    List<POS> pos = POS.getAllPOS();
