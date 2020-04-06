@@ -1,6 +1,7 @@
 package stages;
 import main.Bot;
 import main.GuiBot;
+import main.InputProcess;
 import main.Stage;
 
 import java.io.IOException;
@@ -117,7 +118,7 @@ public class Diagnosis implements Stage {
 				e.printStackTrace();
 			}
 			for(String bodyPart : bodyParts) {
-				if(input.toLowerCase().contains(bodyPart)) {
+				if(input.toLowerCase().contains(bodyPart)||InputProcess.check(input, bodyPart)) {
 					badBodyParts.replace(bodyPart, true);
 				}
 			}
@@ -197,7 +198,7 @@ public class Diagnosis implements Stage {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(input.toLowerCase().contains("yes") || input.toLowerCase().contains("yea")) {
+		if(input.toLowerCase().contains("yes") ||InputProcess.check(input, "yes")) {
 			this.start(bot); //repeat diagnosis
 		}
 		
@@ -210,6 +211,14 @@ public class Diagnosis implements Stage {
 		}
 		firstLineOut = true;
 		GuiBot.println(toPrint);
+	}
+	
+	public boolean checker(String[] array) {
+		boolean contains = false;
+		
+		
+		
+		return contains;
 	}
 	
 	//Resources

@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import main.Bot;
 import main.GuiBot;
+import main.InputProcess;
 import main.Stage;
 public class FreeStage implements Stage{
 	
@@ -20,11 +21,11 @@ public class FreeStage implements Stage{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			if(answer.toLowerCase().contains("no")) {
+			if(answer.toLowerCase().contains("no")||InputProcess.check(answer, "no")) {
 				GuiBot.println("I see. Well, have a good day.");//User does not need help. END
 				return false;
 			}
-			if(answer.toLowerCase().contains("yes")) {
+			if(answer.toLowerCase().contains("yes")||InputProcess.check(answer, "yes")) {
 				bCheck = true;
 			}
 			else
@@ -47,11 +48,11 @@ public class FreeStage implements Stage{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			if(s.toLowerCase().contains("male") || s.toLowerCase().contains("boy") || s.toLowerCase().contains("m")) {
+			if(s.toLowerCase().contains("male") || s.toLowerCase().contains("boy") ||InputProcess.check(s, "male")||InputProcess.check(s, "boy")) {
 				bot.userSex = "M";//User is male
 				bCheck = true;
 			}
-			else if(s.toLowerCase().contains("female") || s.toLowerCase().contains("girl") || s.toLowerCase().contains("f")) {
+			else if(s.toLowerCase().contains("female") || s.toLowerCase().contains("girl") ||InputProcess.check(s, "female")||InputProcess.check(s, "girl")) {
 				bot.userSex = "F";//user is female
 				bCheck = true;
 			}

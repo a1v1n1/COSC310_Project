@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import main.Bot;
 import main.GuiBot;
+import main.InputProcess;
 import main.Stage;
 public class ImmediateStage implements Stage{
 	
@@ -20,10 +21,10 @@ public class ImmediateStage implements Stage{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			if(answer.toLowerCase().contains("no")) { //User does not need 911. Continue to Free stage.
+			if(answer.toLowerCase().contains("no")||InputProcess.check(answer, "no")) { //User does not need 911. Continue to Free stage.
 				return true;
 			}
-			else if(answer.toLowerCase().contains("yes")) {//User needs 911. Ask for address
+			else if(answer.toLowerCase().contains("yes")||InputProcess.check(answer, "yes")) {//User needs 911. Ask for address
 				EMCheck = true;
 			}
 			else
@@ -48,11 +49,11 @@ public class ImmediateStage implements Stage{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				if(answer.toLowerCase().contains("yes")) { //Address confirmed. Send message to 911
+				if(answer.toLowerCase().contains("yes")||InputProcess.check(answer, "yes")) { //Address confirmed. Send message to 911
 					ACheck = true;
 					EMCheck = true;
 				}
-				else if(answer.toLowerCase().contains("no")) {
+				else if(answer.toLowerCase().contains("no")||InputProcess.check(answer, "no")) {
 					GuiBot.println("Okay, what is the correct address?");
 					ACheck = true;
 				}
