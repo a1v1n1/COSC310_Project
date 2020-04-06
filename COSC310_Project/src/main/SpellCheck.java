@@ -8,7 +8,7 @@ import java.util.List;
 public class SpellCheck {
 	
 	public static void main(String[] args) throws JWNLException {
-		String test = "dortor dof hoase paent";
+		String test = "dortor dof hoase paent yea ni yoo na yeh nt";
 		System.out.println(hasTypoLine(test));
 	}
 	
@@ -32,7 +32,7 @@ public class SpellCheck {
 		Dictionary dictionary = Dictionary.getDefaultResourceInstance();
 	    List<POS> pos = POS.getAllPOS();
 	    IndexWord GET = dictionary.getIndexWord(pos.get(0), t);
-		if(!(GET==null)) {
+		if(!(GET==null) && t.length() > 3) {
 			return t;
 		}
 	    char[] storage = t.toCharArray();
@@ -43,8 +43,14 @@ public class SpellCheck {
 	    		String check = new String(checkedWord);
 	    		for(int k = 0; k < 4; k++) {
 	    			GET = dictionary.getIndexWord(pos.get(0), check);
-		    		if(!(GET==null)) {
+		    		if(!(GET==null) && check.length() > 3) {
 		    			return check;
+		    		}
+		    		else if(check.equalsIgnoreCase("yes")) {
+		    			return "yes";
+		    		}
+		    		else if(check.equalsIgnoreCase("no")) {
+		    			return "no";
 		    		}
 	    		}
 	    	}

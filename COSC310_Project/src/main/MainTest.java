@@ -17,7 +17,7 @@ public class MainTest {
 		Dictionary d = Dictionary.getDefaultResourceInstance();
 		List<POS> pos = POS.getAllPOS();
 		
-		IndexWord GET = d.getIndexWord(pos.get(0),"dog");
+		IndexWord GET = d.getIndexWord(pos.get(0),"abs");
 		List<Synset> GETsynList = GET.getSenses();
 		PointerTargetNodeList synonyms = PointerUtils.getDirectHyponyms(GETsynList.get(0));
 		synonyms.print();
