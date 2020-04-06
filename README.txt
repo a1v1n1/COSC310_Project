@@ -31,11 +31,15 @@ Addition of second conversation topic(Get help from 911).
 
 5 varied responses for out of topic conversation attempts.
 
-Addition of the GuiMain class forms the GUI of the main window, which allows the user to start a chat window with an agent.
+Addition of the GuiMain class, which forms the GUI of the main window, which allows the user to start a chat window with an agent.
 
-Addition of the GuiBot class forms the GUI for the chat window, which allows user to chat with an agent within a GUI instead of a console.
+Addition of the GuiBot class, which forms the GUI for the chat window, which allows user to chat with an agent within a GUI instead of a console.
 
 Addition of the ChatbotSocket class enables the communication of the chatbot with other chatbots, where it is able to communicate through the use of sockets.
+
+Addition of the spellchecker expands how much the chatbot understands.
+
+Addition of the synonym finder improved the ability of the chatbot to understand the user.
 
 Features:
 In the Documentation pdf to include images.
