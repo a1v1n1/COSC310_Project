@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import main.Bot;
 import main.GuiBot;
+import main.InputProcess;
 import main.Stage;
 public class FreeStage implements Stage{
 	
@@ -20,11 +21,11 @@ public class FreeStage implements Stage{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			if(answer.toLowerCase().contains("no")) {
+			if(answer.toLowerCase().contains("no")||InputProcess.check(answer, "no")) {
 				GuiBot.println("I see. Well, have a good day.");//User does not need help. END
 				return false;
 			}
-			if(answer.toLowerCase().contains("yes")) {
+			if(answer.toLowerCase().contains("yes")||InputProcess.check(answer, "yes")) {
 				bCheck = true;
 			}
 			else
@@ -49,11 +50,9 @@ public class FreeStage implements Stage{
 			}
 			if(s.toLowerCase().contains("female") || s.toLowerCase().contains("girl") || s.toLowerCase().contains("f")) {
 				bot.userSex = "F";//user is female
-				bCheck = true;
 			}
 			else if(s.toLowerCase().contains("male") || s.toLowerCase().contains("boy") || s.toLowerCase().contains("m")) {
 				bot.userSex = "M";//User is male
-				bCheck = true;
 			}
 			else
 				GuiBot.println(cannedSex[(int)(Math.random()*cannedSex.length)]);//not M or F
