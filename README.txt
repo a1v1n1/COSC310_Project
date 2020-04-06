@@ -37,5 +37,9 @@ Addition of the GuiBot class forms the GUI for the chat window, which allows use
 
 Addition of the ChatbotSocket class enables the communication of the chatbot with other chatbots, where it is able to communicate through the use of sockets.
 
+Addition of the spellchecker expands how much the chatbot understands.
+
+Addition of the synonym finder improved the ability of the chatbot to understand the user.
+
 Features:
 In the Documentation pdf to include images.
