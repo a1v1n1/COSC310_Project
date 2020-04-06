@@ -47,12 +47,12 @@ public class FreeStage implements Stage{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			if(s.toLowerCase().contains("male") || s.toLowerCase().contains("boy") || s.toLowerCase().contains("m")) {
-				bot.userSex = "M";//User is male
+			if(s.toLowerCase().contains("female") || s.toLowerCase().contains("girl") || s.toLowerCase().contains("f")) {
+				bot.userSex = "F";//user is female
 				bCheck = true;
 			}
-			else if(s.toLowerCase().contains("female") || s.toLowerCase().contains("girl") || s.toLowerCase().contains("f")) {
-				bot.userSex = "F";//user is female
+			else if(s.toLowerCase().contains("male") || s.toLowerCase().contains("boy") || s.toLowerCase().contains("m")) {
+				bot.userSex = "M";//User is male
 				bCheck = true;
 			}
 			else

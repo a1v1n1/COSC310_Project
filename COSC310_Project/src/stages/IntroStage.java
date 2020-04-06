@@ -51,7 +51,7 @@ public class IntroStage implements Stage{
 			if(answer.toLowerCase().contains("yes")||InputProcess.check(answer, "yes")) {
 				medX = true;
 			}
-			if(answer.toLowerCase().contains("no")) {
+			else if(answer.toLowerCase().contains("no")) {
 				GuiBot.println("I see. Well, have a good day.");//User does not need help. END
 				return false;
 			}
