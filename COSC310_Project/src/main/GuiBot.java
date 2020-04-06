@@ -52,12 +52,15 @@ public class GuiBot {
 	
 	public static void print2(String toPrint) {
 		botSocket.output.append(toPrint);
-		text.append("<" + bot.name.toUpperCase() + ">:\n" + toPrint);
+		//botSocket.output.
+		botSocket.output.flush();
+		text.append("\n<" + bot.name.toUpperCase() + ">:\n" + toPrint);
 	}
 	
 	public static void println2(String toPrint) {
 		botSocket.output.append(toPrint + "\n");
-		text.append("<" + bot.name.toUpperCase() + ">:\n" + toPrint + "\n");
+		botSocket.output.flush();
+		text.append("\n<" + bot.name.toUpperCase() + ">:\n" + toPrint + "\n");
 	}
 	
 	
@@ -65,13 +68,12 @@ public class GuiBot {
 	
 	public boolean makeGui() {
 		boolean success = false;
-		//System.setIn(in);
-//		try {
-//			botSocket = new ChatbotSocket();
-//		} catch (Exception ex) {
-//			// TODO Auto-generated catch block
-//			ex.printStackTrace();
-//		} 
+		try {
+			botSocket = new ChatbotSocket();
+		} catch (Exception ex) {
+			// TODO Auto-generated catch block
+			ex.printStackTrace();
+		} 
 		
 		bot = new Bot();
 		String name = bot.name;

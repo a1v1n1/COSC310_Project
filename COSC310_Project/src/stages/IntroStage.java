@@ -27,7 +27,13 @@ public class IntroStage implements Stage{
 //			} catch (IOException e) {
 //				e.printStackTrace();
 //			}
-			String answer = GuiBot.getInput();
+			String answer = "";
+			try {
+				answer = GuiBot.getInput();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 //			while(answer.equals("")) {
 //				answer = GuiBot.getInput();
 ////				System.out.println("waiting " + answer);
@@ -47,7 +53,7 @@ public class IntroStage implements Stage{
 				medX = true;
 			}
 			else {
-				if(unin<5) {
+				if(unin<500) {
 					GuiBot.println(cannedTopic[(int)(Math.random()*cannedTopic.length)]);//not yes or no
 				}
 				else {

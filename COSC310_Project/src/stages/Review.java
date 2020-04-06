@@ -1,4 +1,5 @@
 package stages;
+import java.io.IOException;
 import java.util.Scanner;
 
 import main.Bot;
@@ -10,11 +11,22 @@ public class Review implements Stage{
 		Bot bot = b;
 		//Scanner in = new Scanner(System.in);
 		GuiBot.println(cannedReview1[(int)(Math.random()*cannedReview1.length)]);//Ask for user feedback
-		bot.userReview =  GuiBot.getInput();
+		try {
+			bot.userReview =  GuiBot.getInput();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		GuiBot.println(cannedReview2[(int)(Math.random()*cannedReview2.length)]);//Ask for 1 to 5 rating
 		boolean bCheck = false;
 		while(!bCheck) {
-			String rating = GuiBot.getInput();
+			String rating = "";
+			try {
+				rating = GuiBot.getInput();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			for(String ageCheck : rateList) {
 				if(rating.toLowerCase().contains(ageCheck)) {
 					bot.userRating = rating;//Rating obtained

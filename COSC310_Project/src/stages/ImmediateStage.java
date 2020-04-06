@@ -1,4 +1,5 @@
 package stages;
+import java.io.IOException;
 import java.util.Scanner;
 
 import main.Bot;
@@ -12,7 +13,13 @@ public class ImmediateStage implements Stage{
 		GuiBot.println(cannedCheck1[(int)(Math.random()*cannedCheck1.length)]);//Ask about immediate medical help
 		boolean EMCheck = false;
 		while(!EMCheck) {
-			String answer = GuiBot.getInput();
+			String answer = "";
+			try {
+				answer = GuiBot.getInput();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			if(answer.toLowerCase().contains("no")) { //User does not need 911. Continue to Free stage.
 				return true;
 			}
@@ -25,11 +32,22 @@ public class ImmediateStage implements Stage{
 		GuiBot.println("Alright, please give us your address and we'll dispatch 911 to that address.");
 		EMCheck = false;
 		while(!EMCheck) {
-			bot.userAddress = GuiBot.getInput();
+			try {
+				bot.userAddress = GuiBot.getInput();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			GuiBot.println("Is this the correct address: \n" +bot.userAddress);
 			boolean ACheck = false;
 			while(!ACheck) {
-				String answer = GuiBot.getInput();
+				String answer = "";
+				try {
+					answer = GuiBot.getInput();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				if(answer.toLowerCase().contains("yes")) { //Address confirmed. Send message to 911
 					ACheck = true;
 					EMCheck = true;

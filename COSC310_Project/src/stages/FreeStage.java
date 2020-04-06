@@ -1,4 +1,5 @@
 package stages;
+import java.io.IOException;
 import java.util.Scanner;
 
 import main.Bot;
@@ -12,7 +13,13 @@ public class FreeStage implements Stage{
 		GuiBot.println(cannedGreets1[(int)(Math.random()*cannedGreets1.length)]);//Ask if user is free to answer questions
 		boolean bCheck = false;
 		while(!bCheck) {
-			String answer = GuiBot.getInput();
+			String answer = "";
+			try {
+				answer = GuiBot.getInput();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			if(answer.toLowerCase().contains("no")) {
 				GuiBot.println("I see. Well, have a good day.");//User does not need help. END
 				return false;
@@ -24,11 +31,22 @@ public class FreeStage implements Stage{
 				GuiBot.println(cannedYesNo[(int)(Math.random()*cannedYesNo.length)]);//not yes or no
 		}
 		GuiBot.println(cannedGreets2[(int)(Math.random()*cannedGreets2.length)]);//Ask for user name
-		bot.username = GuiBot.getInput(); //Save user name
+		try {
+			bot.username = GuiBot.getInput();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} //Save user name
 		GuiBot.println(cannedGreets3[(int)(Math.random()*cannedGreets3.length)] +bot.username +", what is your sex?");
 		bCheck = false;
 		while(!bCheck) {//Ask for user sex
-			String s = GuiBot.getInput();
+			String s = "";
+			try {
+				s = GuiBot.getInput();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			if(s.toLowerCase().contains("male") || s.toLowerCase().contains("boy") || s.toLowerCase().contains("m")) {
 				bot.userSex = "M";//User is male
 				bCheck = true;
@@ -43,7 +61,13 @@ public class FreeStage implements Stage{
 		GuiBot.println(cannedGreets4[(int)(Math.random()*cannedGreets4.length)]);//Ask for user age
 		bCheck = false;
 		while(!bCheck) {
-			String age = " "+GuiBot.getInput()+" ";
+			String age = "";
+			try {
+				age = " "+GuiBot.getInput()+" ";
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			for(String ageTensCheck : ageTens) {
 				if(age.toLowerCase().contains(ageTensCheck)) {
 					bot.userAge = ageTensCheck;//Save user tens age

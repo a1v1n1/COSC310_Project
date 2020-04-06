@@ -2,6 +2,8 @@ package stages;
 import main.Bot;
 import main.GuiBot;
 import main.Stage;
+
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -74,12 +76,22 @@ public class Diagnosis implements Stage {
 		
 		
 		GuiBot.println("Alright " + title + bot.username + ", does your condition involve pain at all?");
-		input = GuiBot.getInput();
+		try {
+			input = GuiBot.getInput();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		int number = 5;
 		if(input.toLowerCase().contains("yes") || input.toLowerCase().contains("yea")) {
 			GuiBot.println("I'm sorry to hear that. On a scale of 1-10 how would you rate your pain? With 1 being pretty much unnoticable and 10 being unbearable pain");
-			input = GuiBot.getInput();
+			try {
+				input = GuiBot.getInput();
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			
 			try {
 				number = Integer.parseInt(input.replaceAll("\\D+", ""));
@@ -98,7 +110,12 @@ public class Diagnosis implements Stage {
 		
 		boolean hasProblem = true;
 		while(hasProblem) {
-			input = GuiBot.getInput();
+			try {
+				input = GuiBot.getInput();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			for(String bodyPart : bodyParts) {
 				if(input.toLowerCase().contains(bodyPart)) {
 					badBodyParts.replace(bodyPart, true);
@@ -106,7 +123,12 @@ public class Diagnosis implements Stage {
 			}
 			
 			GuiBot.println("Is there anything else related to your health you are concerned about?");
-			input = GuiBot.getInput();
+			try {
+				input = GuiBot.getInput();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			if(!(input.toLowerCase().contains("yes") || input.toLowerCase().contains("yea"))) {
 				hasProblem = false;
 				GuiBot.println("Alright, Here's my recommendation:");
@@ -169,7 +191,12 @@ public class Diagnosis implements Stage {
 			printer(firstLineOut, "You may want to see a gynecologist. \nA gynecologist deals with women's health including pregnancy, childbirth and overall wommen's reproductive health");
 		
 		GuiBot.println("Would you like me to attempt to diagnose you again?");
-		input =  GuiBot.getInput();
+		try {
+			input =  GuiBot.getInput();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		if(input.toLowerCase().contains("yes") || input.toLowerCase().contains("yea")) {
 			this.start(bot); //repeat diagnosis
 		}
