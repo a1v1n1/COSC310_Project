@@ -27,8 +27,8 @@ public class Review implements Stage{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			for(String ageCheck : rateList) {
-				if(rating.toLowerCase().contains(ageCheck)) {
+			for(String rate : rateList) {
+				if(rating.toLowerCase().contains(rate)) {
 					bot.userRating = rating;//Rating obtained
 					bCheck = true;
 				}
